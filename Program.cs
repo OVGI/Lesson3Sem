@@ -1,18 +1,20 @@
-﻿/* Задача 18. Напишите программу , которая по заданному номеру четверти 
-показывает диапазон возможных координат точек в этой четверти (x и y)  */
+﻿/* Задача 20. Напишите программу , которая принимает на вход координаты двух точек
+ и находит расстояние между ними в 2D пространстве.  
+ A (3,6); B (2,1) - > 5,09
+ A (7, -5); B (1, -1) - > 7,21     */
+int xa, xb, ya, yb;
 
-int a;
+Console.Write($"Введите координату X точки A: ");
+int.TryParse(Console.ReadLine()!, out xa);
+Console.Write($"Введите координату Y точки A: ");
+int.TryParse(Console.ReadLine()!, out ya);
+Console.Write($"Введите координату X точки B: ");
+int.TryParse(Console.ReadLine()!, out xb);
+Console.Write($"Введите координату Y точки B: ");
+int.TryParse(Console.ReadLine()!, out yb);
 
-Console.Write($"Введите номер четверти координатной плоскости: ");
-int.TryParse(Console.ReadLine()!, out a);
+int x = (xa - xb) * (xa - xb);
+int y = (ya - yb) * (ya - yb);
 
-if (a == 1)
-    Console.Write($"x > 0 y > 0");
-else if (a == 2)
-    Console.Write($"x < 0 y > 0");
-else if (a == 3)
-    Console.Write($"x < 0 y < 0");
-else if (a == 4)
-    Console.Write($"x > 0 y < 0");
-else
-    Console.Write($"Неверный ввод");
+double ans = Math.Sqrt(x + y);
+Console.Write($"Расстояние между точками A и B = {Math.Round(ans, 2)}");
